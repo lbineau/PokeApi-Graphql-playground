@@ -106,13 +106,13 @@ const types = computed(() => {
 
 .styled-table thead {
   position: sticky;
-  inset-block-start: 0; /* "top" */
+  top: 0;
   z-index: 2;
 }
 
 .styled-table tbody th{
   position: sticky;
-  inset-inline-start: 0; /* "left" */
+  left: 0;
   z-index: 1;
 }
 
