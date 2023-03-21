@@ -78,6 +78,10 @@ const types = computed(() => {
   font-size: x-small;
   font-weight: bolder;
   text-transform: uppercase;
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   span {
     display: block;
     &:first-child {
@@ -93,7 +97,6 @@ const types = computed(() => {
 .table-container {
 }
 .styled-table {
-  display: inline-table;
   position: relative;
   border-collapse: collapse;
   overflow: hidden;
@@ -102,6 +105,10 @@ const types = computed(() => {
   font-family: sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  @supports (contain: paint) {
+    contain: paint;
+    overflow: auto;
+}
 }
 
 .styled-table thead {
