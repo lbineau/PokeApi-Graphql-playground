@@ -35,7 +35,5 @@ provide(DefaultApolloClient, apolloClient)
   height: 4em;
   margin-bottom: -0.6rem;
   display: block;
-  will-change: filter;
-  transition: filter 300ms;
 }
 </style>

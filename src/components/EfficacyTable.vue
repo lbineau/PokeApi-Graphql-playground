@@ -1,16 +1,8 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { useAsyncState } from '@vueuse/core'
 import { useQuery } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
 import _get from 'lodash/get'
-
-
-defineProps({
-  msg: String,
-})
-
-const currentType = ref(null)
 
 const { result, loading } = useQuery(gql`
   query samplePokeAPIquery {
@@ -57,7 +49,7 @@ const types = computed(() => {
         <thead>
           <tr>
             <th class="double-entry-label">
-              <span>Attaque</span><br><span>Défense</span>
+              <span>Défense</span><br><span>Attaque</span>
             </th>
             <th v-for="type in types" :key="type.id">
               {{ type.name }}
@@ -82,7 +74,7 @@ const types = computed(() => {
 
 <style scoped lang="scss">
 .styled-table th.double-entry-label {
-  background: linear-gradient(to right top, #35495e 50%, #009879 50%);
+  background: linear-gradient(to right top, #35495e 50%, #016e53 50%);
   font-size: x-small;
   font-weight: bolder;
   text-transform: uppercase;
@@ -125,7 +117,7 @@ const types = computed(() => {
 }
 
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #016e53;
     color: #ffffff;
     text-align: left;
 }
@@ -160,7 +152,8 @@ const types = computed(() => {
 // Hover
 
 tbody td:hover, tbody td:focus {
-  background-color: #391394;
+  background-color: #ffe100;
+  color: #000000;
 }
 
 tbody td:hover::after,
@@ -177,14 +170,14 @@ thead th:not(:empty):focus::after {
 }
 
 tbody tr:hover,
-tbody td:hover::after,
-tbody th:hover::after {
+tbody td:hover::after {
   background-color: #000000;
 }
 
-tbody tr:focus-within,
-tbody td:focus::after,
-tbody th:focus::after {
+tbody tr:focus-within {
+  background-color: #35495e;
+}
+tbody td:focus::after {
   background-color: #016e53;
 }
 
