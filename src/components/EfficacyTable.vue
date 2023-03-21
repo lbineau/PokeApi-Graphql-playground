@@ -134,7 +134,7 @@ const types = computed(() => {
 }
 
 .styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #333;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
@@ -171,7 +171,7 @@ thead th:not(:empty):focus::after {
 
 tbody tr:hover,
 tbody td:hover::after {
-  background-color: #000000;
+  background-color: #333;
 }
 
 tbody tr:focus-within {
