@@ -1,30 +1,16 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
-import gql from 'graphql-tag'
+import { QUERY_TYPES } from '../services/types'
 import _get from 'lodash/get'
 
-const { result, loading } = useQuery(gql`
-  query typesQuery {
-    types: pokemon_v2_type(where: {pokemon_v2_typeefficacies: {}}) {
-      id
-      name
-      typenames: pokemon_v2_typenames(where: {pokemon_v2_language: {name: {_eq: "fr"}}}) {
-        name
-      }
-      typeefficacies: pokemon_v2_typeefficacies {
-        id
-        damage_factor
-        typeByTargetTypeId: pokemonV2TypeByTargetTypeId {
-          typenames: pokemon_v2_typenames(where: {pokemon_v2_language: {name: {_eq: "fr"}}}) {
-            name
-          }
-          name
-        }
-      }
-    }
-  }
-`)
+const props = defineProps({
+  language: String
+})
+
+const { result } = useQuery(QUERY_TYPES, () => ({
+  language: props.language,
+}))
 
 const types = computed(() => {
   return result.value?.types?.map(item => ({
@@ -55,7 +41,7 @@ const types = computed(() => {
         i18nName: _get(item, 'typeByTargetTypeId.typenames[0].name', item.name),
       }
     })
-  })) ?? []
+  })).filter(item => _get(item, 'efficacies', []).length > 0) ?? []
 })
 
 </script>
@@ -67,7 +53,7 @@ const types = computed(() => {
         <thead>
           <tr>
             <th class="double-entry-label">
-              <span>Défense</span><br><span>Attaque</span>
+              <span><img src="../assets/shield.svg" alt="Defense"></span><span><img src="../assets/sword.svg" alt="Attack"></span>
             </th>
             <th v-for="type in types" :key="type.id">
               <div class="icon" :class="type.name"><img :src="`/icons/types/${type.name}.svg`" width="30" height="30" :alt="type.i18nName" /></div>
@@ -89,9 +75,6 @@ const types = computed(() => {
       </table>
     </div>
   </div>
-  <div v-else-if="loading">
-    Loading
-  </div>
 </template>
 
 <style scoped lang="scss">
@@ -106,8 +89,15 @@ const types = computed(() => {
     left: 0;
     z-index: 3;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    padding: 0 0.6rem;
     span {
       display: block;
+      img {
+        opacity: 0.87;
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+      }
       &:first-child {
         text-align: right;
         margin-bottom: 0.5rem;
@@ -145,16 +135,15 @@ const types = computed(() => {
   }
 
   thead tr {
-      background-color: #016e53;
-      color: #ffffff;
-      text-align: left;
+    background-color: #016e53;
+    text-align: left;
   }
 
   th,
   td {
-      padding: 12px 15px;
-      position: relative;
-      text-align: center;
+    padding: 12px 15px;
+    position: relative;
+    text-align: center;
   }
 
   th {
