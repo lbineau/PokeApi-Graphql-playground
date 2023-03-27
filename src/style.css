@@ -27,6 +27,7 @@ h1 {
 #app {
   margin: 0 auto;
   padding: 2%;
+  max-width: calc(100rem - 4%);
 }
 
 /* Icons */

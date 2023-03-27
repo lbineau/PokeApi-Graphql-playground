@@ -39,6 +39,7 @@ header {
   position: relative;
   z-index: 20;
   display: flex;
+  gap: 1rem;
   justify-content: space-between;
   align-items: center;
   margin: -0.5rem auto;

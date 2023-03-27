@@ -79,6 +79,7 @@ const types = computed(() => {
 
 <style scoped lang="scss">
 .styled-table {
+  width: 100%;
 
   th.double-entry-label {
     background: linear-gradient(to right top, #35495e 50%, #016e53 50%);
