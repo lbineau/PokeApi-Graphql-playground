@@ -23,8 +23,8 @@ const languages = computed(() => {
 <template>
   <header>
     <h1>
-      <img src="./assets/logo.svg" class="logo" alt="PokéApi Graphql playground" />
-      PokéApi
+      <img src="./assets/logo.svg" class="logo" alt="" />
+      PikAPI
     </h1>
     <LanguageSelector :languages="languages" v-model="language" />
   </header>
