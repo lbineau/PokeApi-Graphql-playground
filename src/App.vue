@@ -2,22 +2,20 @@
 import { ref, computed } from 'vue'
 import EfficacyTable from './components/EfficacyTable.vue'
 import Loader from './components/Loader.vue'
-import LanguageSelector from './components/LanguageSelector.vue';
-import { useQuery } from '@vue/apollo-composable'
-import { QUERY_LANGUAGES } from './services/languages'
+import LanguageSelector from './components/LanguageSelector.vue'
 
 const language = ref('fr')
 
-const { result } = useQuery(QUERY_LANGUAGES)
-const languages = computed(() => {
-  return result.value?.language?.map(item => {
-    return {
-      id: item.id,
-      name: item.name,
-      i18nName: item.languagenames.find(languagename => languagename.local_language_id === item.id).name
-    }
-  })
-})
+const languages = computed(() => [
+  { name: 'en', i18nName: 'English' },
+  { name: 'fr', i18nName: 'Français' },
+  { name: 'de', i18nName: 'Deutsch' },
+  { name: 'es', i18nName: 'Español' },
+  { name: 'it', i18nName: 'Italiano' },
+  { name: 'pt-Br', i18nName: 'Português' },
+  { name: 'ja-Hrkt', i18nName: '日本語' },
+  { name: 'zh-Hant', i18nName: '中文' }
+])
 </script>
 
 <template>

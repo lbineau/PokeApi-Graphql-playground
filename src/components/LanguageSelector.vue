@@ -12,7 +12,7 @@ const emit = defineEmits(['update:modelValue'])
 <template>
   <div class="languages" v-if="languages?.length">
     <div class="select">
-      <select :value="modelValue" @change="$event => $emit('update:modelValue', $event.target.value)">
+      <select aria-label="Select a language" :value="modelValue" @change="$event => $emit('update:modelValue', $event.target.value)">
           <option
             v-for="language in languages"
             :value="language.name"
