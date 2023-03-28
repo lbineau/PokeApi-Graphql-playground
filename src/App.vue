@@ -12,9 +12,8 @@ const languages = computed(() => [
   { name: 'de', i18nName: 'Deutsch' },
   { name: 'es', i18nName: 'Español' },
   { name: 'it', i18nName: 'Italiano' },
-  { name: 'pt-Br', i18nName: 'Português' },
-  { name: 'ja-Hrkt', i18nName: '日本語' },
-  { name: 'zh-Hant', i18nName: '中文' }
+  { name: 'ja', i18nName: '日本語' },
+  { name: 'zh-Hans', i18nName: '中文' }
 ])
 </script>
 

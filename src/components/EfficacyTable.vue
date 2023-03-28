@@ -112,11 +112,11 @@ const types = computed(() => {
   & {
     position: relative;
     border-collapse: collapse;
-    overflow: hidden;
     margin: 0;
     font-size: 0.9em;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
     @supports (contain: paint) {
       contain: paint;
       overflow: auto;
