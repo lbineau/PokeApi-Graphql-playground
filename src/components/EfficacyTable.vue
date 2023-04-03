@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
 import { QUERY_TYPES } from '../services/types'
 import _get from 'lodash/get'
@@ -55,19 +55,19 @@ const types = computed(() => {
             <th class="double-entry-label">
               <span><img src="../assets/shield.svg" alt="Defense"></span><span><img src="../assets/sword.svg" alt="Attack"></span>
             </th>
-            <th v-for="type in types" :key="type.id">
-              <div class="icon" :class="type.name"><img :src="`/icons/types/${type.name}.svg`" width="30" height="30" :alt="type.i18nName" /></div>
-              {{ type.i18nName }}
+            <th v-for="typeItem in types" :key="typeItem.id">
+              <div class="icon" :class="typeItem.name"><img :src="`/icons/types/${typeItem.name}.svg`" width="30" height="30" :alt="typeItem.i18nName" /></div>
+              {{ typeItem.i18nName }}
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="type in types" :key="type.id">
+          <tr v-for="typeItem in types" :key="typeItem.id">
             <th>
-              <div class="icon" :class="type.name"><img :src="`/icons/types/${type.name}.svg`" width="30" height="30" :alt="type.i18nName" /></div>
-              {{ type.i18nName }}
+              <div class="icon" :class="typeItem.name"><img :src="`/icons/types/${typeItem.name}.svg`" width="30" height="30" :alt="typeItem.i18nName" /></div>
+              {{ typeItem.i18nName }}
             </th>
-            <td :class="efficacy.efficacyClassName" tabindex="-1" v-for="efficacy in type.efficacies" :key="efficacy.id">
+            <td :class="efficacy.efficacyClassName" tabindex="-1" v-for="efficacy in typeItem.efficacies" :key="efficacy.id">
               <div class="data">{{ efficacy.text }}</div>
             </td>
           </tr>
@@ -154,10 +154,13 @@ const types = computed(() => {
       border-radius: 100%;
       margin: 0 auto;
       margin-bottom: 0.5rem;
-      padding: 0.5rem;
-      height: 30px;
-      width: 30px;
+      height: 3rem;
+      width: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       img {
+        flex-shrink: 0;
         display: block;
         margin: auto;
       }

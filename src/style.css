@@ -14,6 +14,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -27,7 +33,7 @@ h1 {
 #app {
   margin: 0 auto;
   padding: 2%;
-  max-width: calc(100rem - 4%);
+  max-width: 100rem;
 }
 
 /* Icons */

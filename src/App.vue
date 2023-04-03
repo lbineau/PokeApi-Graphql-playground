@@ -1,6 +1,5 @@
 <script setup>
 import { ref, computed } from 'vue'
-import EfficacyTable from './components/EfficacyTable.vue'
 import Loader from './components/Loader.vue'
 import LanguageSelector from './components/LanguageSelector.vue'
 
@@ -26,7 +25,7 @@ const languages = computed(() => [
     <LanguageSelector :languages="languages" v-model="language" />
   </header>
   <main>
-    <EfficacyTable :language="language" />
+    <router-view :language="language"  />
   </main>
   <Loader />
 </template>
