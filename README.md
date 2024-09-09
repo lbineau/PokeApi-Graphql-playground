@@ -1,7 +1,24 @@
-# Vue 3 + Vite
+# PikAPI
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Fun experiment with graphql and https://pokeapi.co/
+It show strengths and weaknesses of each pokemon type matchup.
 
-## Recommended IDE Setup
+## Installation
+```bash
+npm install
+```
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Usage
+```bash
+npm run dev
+```
+
+## Build
+```bash
+npm run build
+```
+
+You can either copy the files to your beloved hosting providers or use the following command to preview it locally.
+```bash
+npm run preview
+```
