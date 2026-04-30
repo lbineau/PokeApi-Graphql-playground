@@ -2,19 +2,19 @@ import gql from 'graphql-tag'
 
 export const QUERY_TYPES = gql `
   query typesQuery ($language: String!) {
-    types: pokemon_v2_type {
+    types: type {
       id
       name
-      typenames: pokemon_v2_typenames(where: {pokemon_v2_language: {name: {_eq: $language}}}) {
+      typenames: typenames(where: {language: {name: {_eq: $language}}}) {
         id
         name
       }
-      typeefficacies: pokemon_v2_typeefficacies {
+      typeefficacies: typeefficacies {
         id
         damage_factor
-        typeByTargetTypeId: pokemonV2TypeByTargetTypeId {
+        typeByTargetTypeId: TypeByTargetTypeId {
           id
-          typenames: pokemon_v2_typenames(where: {pokemon_v2_language: {name: {_eq: $language}}}) {
+          typenames: typenames(where: {language: {name: {_eq: $language}}}) {
             id
             name
           }

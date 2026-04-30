@@ -12,7 +12,7 @@ import PokemonDetails from './components/PokemonDetails.vue'
 // HTTP connection to the API
 const httpLink = createHttpLink({
   // You should use an absolute URL here
-  uri: 'https://beta.pokeapi.co/graphql/v1beta',
+  uri: 'https://graphql.pokeapi.co/v1beta2',
 })
 // Cache implementation
 const cache = new InMemoryCache()
