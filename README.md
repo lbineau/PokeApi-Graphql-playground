@@ -1,6 +1,6 @@
 # PikAPI
 
-Fun experiment with graphql and https://pokeapi.co/
+Fun experiment with graphql v1beta2 and https://pokeapi.co/
 It show strengths and weaknesses of each pokemon type matchup.
 
 ## Installation
